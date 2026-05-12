@@ -9,7 +9,6 @@ def conectar_base_datos():
             host="localhost",
             port="5432"
         )
-        print("Conexión exitosa a la base de datos")
     except Exception as e:
         print(f"Error al conectar a la base de datos: {e}")
     return conexion
@@ -17,4 +16,3 @@ def conectar_base_datos():
 def cerrar_conexion(conexion):
     if conexion:
         conexion.close()
-        print("Conexión cerrada")
