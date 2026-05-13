@@ -79,3 +79,33 @@ def producto_que_menos_ingresos_genero():
         return producto_menos_ingresos
     finally:
         cerrar_conexion(conexion)
+
+def cantidad_por_categoria():
+    conexion = conectar_base_datos()
+    cursor = conexion.cursor()
+    try:
+        cursor.execute("SELECT productos.categoria, SUM(ventas.cantidad) AS total_vendido FROM ventas JOIN productos ON ventas.producto_id = productos.id GROUP BY productos.categoria order by total_vendido desc")
+        cantidad_por_categoria = cursor.fetchall()
+        return cantidad_por_categoria
+    finally:
+        cerrar_conexion(conexion)
+
+def ventas_por_categoria():
+    conexion = conectar_base_datos()
+    cursor = conexion.cursor()
+    try:
+        cursor.execute("SELECT productos.categoria, SUM(ventas.cantidad * productos.precio) AS total_vendido FROM ventas JOIN productos ON ventas.producto_id = productos.id GROUP BY productos.categoria order by total_vendido desc")
+        ventas_por_categoria = cursor.fetchall()
+        return ventas_por_categoria
+    finally:
+        cerrar_conexion(conexion)
+
+def ventas_por_fecha():
+    conexion = conectar_base_datos()
+    cursor = conexion.cursor()
+    try:
+        cursor.execute("SELECT DATE(ventas.fecha), SUM(ventas.cantidad * productos.precio) AS total_vendido FROM ventas JOIN productos ON ventas.producto_id = productos.id GROUP BY DATE(ventas.fecha) order by total_vendido desc")
+        ventas_por_fecha = cursor.fetchall()
+        return ventas_por_fecha
+    finally:
+        cerrar_conexion(conexion)
