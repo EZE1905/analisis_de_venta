@@ -38,10 +38,10 @@ ventas_por_fecha = ventas_por_fecha()
 # for categoria in cantidad_por_categoria:
 #     print(f"Categoría: {categoria[0]}, Cantidad Vendida: {categoria[1]}")
 
-# #Ventas por categoría
-# print("\nVentas por categoría:")
-# for categoria in ventas_por_categoria:
-#     print(f"Categoría: {categoria[0]}, Total Vendido: {categoria[1]}")
+#Ventas por categoría
+print("\nVentas por categoría:")
+for categoria in ventas_por_categoria:
+    print(f"Categoría: {categoria[0]}, Total Vendido: {categoria[1]}")
 
 # #Ventas por fecha
 # print("\nVentas por fecha:")
@@ -52,31 +52,31 @@ print("\nAnálisis de ventas:")
 
 
 # #Producto más vendido
-print("\nProducto más vendido:")
-print(f"Producto: {producto_mas_vendido[0]}, Cantidad Vendida: {producto_mas_vendido[1]}")
+# print("\nProducto más vendido:")
+# print(f"Producto: {producto_mas_vendido[0]}, Cantidad Vendida: {producto_mas_vendido[1]}")
 
 # #Producto menos vendido
-print("\nProducto menos vendido:")
-print(f"Producto: {producto_menos_vendido[0]}, Cantidad Vendida: {producto_menos_vendido[1]}")
+# print("\nProducto menos vendido:")
+# print(f"Producto: {producto_menos_vendido[0]}, Cantidad Vendida: {producto_menos_vendido[1]}")
 
-#Producto que más ingresos generó
-print("\nProducto que más ingresos generó:")
-print(f"Producto: {producto_mas_ingresos[0]}, Ingresos: {producto_mas_ingresos[1]}")
+# #Producto que más ingresos generó
+# print("\nProducto que más ingresos generó:")
+# print(f"Producto: {producto_mas_ingresos[0]}, Ingresos: {producto_mas_ingresos[1]}")
 
-#Producto que menos ingresos generó
-print("\nProducto que menos ingresos generó:")
-print(f"Producto: {producto_menos_ingresos[0]}, Ingresos: {producto_menos_ingresos[1]}")
+# #Producto que menos ingresos generó
+# print("\nProducto que menos ingresos generó:")
+# print(f"Producto: {producto_menos_ingresos[0]}, Ingresos: {producto_menos_ingresos[1]}")
 
-#Porcentaje de ventas por categoría
-print("\nPorcentaje de ventas por categoría:")
-porcentaje_categoria = porcentaje_ventas_por_categoria()
-for categoria, porcentaje in porcentaje_categoria:
-    print(f"{categoria}: {porcentaje:.2f}%")
+# #Porcentaje de ventas por categoría
+# print("\nPorcentaje de ventas por categoría:")
+# porcentaje_categoria = porcentaje_ventas_por_categoria()
+# for categoria, porcentaje in porcentaje_categoria:
+#     print(f"{categoria}: {porcentaje:.2f}%")
 
-#Promedio por venta
-promedio_por_venta = promedio_por_venta()
-print(f"\nPromedio por venta: ${promedio_por_venta:.2f}")
+# #Promedio por venta
+# promedio_por_venta = promedio_por_venta()
+# print(f"\nPromedio por venta: ${promedio_por_venta:.2f}")
 
-#Categoría dominante
-categoria_dominante = categoria_dominante()
-print(f"\nCategoría dominante: {categoria_dominante[0]}, Generado: ${categoria_dominante[1]}")
+# #Categoría dominante
+# categoria_dominante = categoria_dominante()
+# print(f"\nCategoría dominante: {categoria_dominante[0]}, Generado: ${categoria_dominante[1]}")
