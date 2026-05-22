@@ -1,17 +1,22 @@
 from consultas import obtener_productos, obtener_ventas, obtener_cantidad_de_productos_vendidos, obtener_precio_total_vendido, producto_mas_vendido, producto_menos_vendido, producto_que_mas_ingresos_genero, producto_que_menos_ingresos_genero, cantidad_por_categoria, ventas_por_categoria, ventas_por_fecha
 from analisis.analisis import porcentaje_ventas_por_categoria, promedio_por_venta, categoria_dominante
+from analisis.estadisticas import media, mediana, desviacion_estandar, valor_maximo, valor_minimo
+import numpy as np
 
 productos = obtener_productos()
 ventas = obtener_ventas()
 cantidad_por_producto = obtener_cantidad_de_productos_vendidos()
 total_vendido = obtener_precio_total_vendido()
-producto_mas_vendido = producto_mas_vendido()
-producto_menos_vendido = producto_menos_vendido()
+el_producto_mas_vendido = producto_mas_vendido()
+el_producto_menos_vendido = producto_menos_vendido()
 producto_mas_ingresos = producto_que_mas_ingresos_genero()
 producto_menos_ingresos = producto_que_menos_ingresos_genero()
-cantidad_por_categoria = cantidad_por_categoria()
-ventas_por_categoria = ventas_por_categoria()
-ventas_por_fecha = ventas_por_fecha()
+datos_cantidad_por_categoria = cantidad_por_categoria()
+datos_ventas_por_categoria = ventas_por_categoria()
+datos_ventas_por_fecha = ventas_por_fecha()
+porcentaje_categoria = porcentaje_ventas_por_categoria()
+promedio_venta = promedio_por_venta()
+datos_categoria_dominante = categoria_dominante()
 
 #Todos los productos
 # print("Productos:")
@@ -40,7 +45,7 @@ ventas_por_fecha = ventas_por_fecha()
 
 #Ventas por categoría
 print("\nVentas por categoría:")
-for categoria in ventas_por_categoria:
+for categoria in datos_ventas_por_categoria:
     print(f"Categoría: {categoria[0]}, Total Vendido: {categoria[1]}")
 
 # #Ventas por fecha
@@ -80,3 +85,23 @@ print("\nAnálisis de ventas:")
 # #Categoría dominante
 # categoria_dominante = categoria_dominante()
 # print(f"\nCategoría dominante: {categoria_dominante[0]}, Generado: ${categoria_dominante[1]}")
+
+#estadisticas
+ventas = []
+for venta in datos_ventas_por_categoria:
+    venta_num = int(venta[1])
+    ventas.append(venta_num)
+np_ventas = np.array(ventas)
+
+media_ventas = media(np_ventas)
+mediana_ventas = mediana(np_ventas)
+desviacion_ventas = desviacion_estandar(np_ventas)
+valor_maximo_ventas = valor_maximo(np_ventas)
+valor_minimo_ventas = valor_minimo(np_ventas)
+
+print("\nEstadísticas de ventas por categoría:")
+print(f"Media: {media_ventas:.2f}")
+print(f"Mediana: {mediana_ventas:.2f}")
+print(f"Desviación Estándar: {desviacion_ventas:.2f}")
+print(f"Valor Máximo: {valor_maximo_ventas}")
+print(f"Valor Mínimo: {valor_minimo_ventas}")
